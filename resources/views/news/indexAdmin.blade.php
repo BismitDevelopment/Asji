@@ -42,7 +42,7 @@
                     @endphp
                     <div class="news-item my-5" onclick="location.href='{{ url('/news/admin/' . $item->id . '/post') }}'">
                         <span><b>{{$item->news_title}},</b><span class="text-muted"> at {{$date}}</span></span>
-                        <p>@php echo $bodySnippet @endphp</p>
+                        <p> {!! $bodySnippet !!} </p>
                     </div>
                 @endforeach
             </div>

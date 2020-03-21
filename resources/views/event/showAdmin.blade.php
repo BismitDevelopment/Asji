@@ -42,7 +42,7 @@
             <span>{{date('F j, Y', strtotime($event->event_date))}}</span>
             <div class="location"><i class="material-icons">location_on</i>{{$event->event_location}}</div>
             <div class="event-description">
-                @php echo $event->event_description; @endphp
+                 {!! $event->event_description !!}
             </div>
         </div>
         <div class="w-100 d-flex justify-content-start">

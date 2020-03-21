@@ -43,7 +43,7 @@
                 <h5>{{$item->event_name}}</h5>
                 <span>{{$date}}</span>
                 <div class="location"><i class="material-icons">location_on</i>{{$item->event_location}}</div>
-                <p>@php echo $desSnippet @endphp</p>
+                <p>{!!  $desSnippet !!}</p>
             </div>
             @endforeach
             {{-- pagination --}}

@@ -18,7 +18,7 @@
             <h1 class="header-show">{{$news->news_title}}</h1>
             <span class="text-muted">{{ date('j F, Y', strtotime($news->created_at)) }}</span>
             <div class="news_body">
-                @php echo $news->news_body; @endphp
+                 {!! $news->news_body !!}
             </div>
         </div>
         <div class="w-100 d-flex justify-content-start">
