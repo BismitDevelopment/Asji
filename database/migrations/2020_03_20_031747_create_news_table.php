@@ -14,10 +14,10 @@ class CreateNewsTable extends Migration
     public function up()
     {
         Schema::create('news', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+            $table->bigIncrements('id')->unsigned();
             $table->string('news_title', 255);
             $table->text('news_body');
+            $table->timestamps();
         });
     }
 

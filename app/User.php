@@ -16,8 +16,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','is_admin', 'is_member',
     ];
+
 
     /**
      * The attributes that should be hidden for arrays.
@@ -35,5 +36,18 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'is_admin' => 'boolean',
+        'is_member' => 'boolean',
     ];
+
+    public function profile(){
+        
+        return $this->hasOne('App\Profile', 'user_id', 'id');
+    }
+
+    public function imageProfile(){
+
+        return $this->hasOneThrough('App\Image', 'App\Profile', 'user_id', 'imageable_id', 'id', 'id');
+    }
+    
 }

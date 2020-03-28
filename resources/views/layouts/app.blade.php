@@ -11,17 +11,27 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
+    <script src="{{asset('js/jquery-3.4.1.min.js')}}"></script>
+    
+    @yield('script')
+    
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    
+    <!--Icons-->
+    {{-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> --}}
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/base.css')}}">
+
+    @yield('css')
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        @yield('header')
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -33,7 +43,21 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('events.index') }}">{{ __('Event') }}</a>
+                        </li>
 
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('lectures.index') }}">{{ __('Public Lecture') }}</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('profiles.index') }}">{{ __('Member') }}</a>
+                        </li>
+
+                        {{-- <li class="nav-item">
+                            <a class="nav-link" href="{{ route('contact') }}">{{ __('Contact Us') }}</a>
+                        </li> --}}
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -73,8 +97,36 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+            <div class="container">
+                @yield('content')
+            </div>
         </main>
+        <div class="footer bg-dark text-white p-5">
+            <div class="row">
+                <div class="col-md-6 col-12 px-5">
+                    <h6 class="font-weight-bold">Pusat Studi Jepang Universitas Indonesia</h6>
+                    <p>Jl. Prof. DR. Selo Soemardjan, Pondok Cina, Kecamatan Beji, Kota Depok, Jawa Barat</p>
+                    <p>16424</p>
+                </div>
+                <div class="col-sm-3 col-6 px-5">
+                    <h6 class="font-weight-bold">Navigations</h6>
+                    <a href="{{ route('home')}}"><p>Home</p></a>
+                    <a href="{{ route('events.index')}}"><p>Event</p></a>
+                    <a href="{{ route('lectures.index')}}"><p>Public Lecture</p></a>
+                    <a href="{{ route('profiles.index')}}"><p>Member</p></a>
+                </div>
+                <div class="col-sm-3 col-6 px-5">
+                    <h6 class="font-weight-bold">Quick Links</h6>
+                    <p>Japan Foundation</p>
+                </div>
+            </div>
+            <div class="copyright d-flex justify-content-center align-items-center">
+                <span>Asosiasi Studi Jepang Indonesia</span>
+                <img src="{{asset('icon/copyright.png')}}" style="margin:0 2px" alt="">
+                <span>2020</span>
+            </div>
+        </div>
     </div>
 </body>
+
 </html>

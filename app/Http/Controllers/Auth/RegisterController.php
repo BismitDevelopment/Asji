@@ -64,10 +64,36 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'is_admin' => 0,
+            'is_member' => 0,
         ]);
+        
+        $arr_name = explode(" ", $data['name']);
+        $f_name = $arr_name[0];
+        for ($i=1; $i < count($arr_name)-1 ; $i++) { 
+            # code...
+            $f_name .= " " . $arr_name[$i];
+        }
+
+        $user->profile()->create([
+            'first_name' => strval($f_name),
+            'last_name' => strval($arr_name[count($arr_name)-1]),
+            'affiliation' => "-",
+            'profession' => "-",
+            'discipline' => "-",
+            'education' => "-",
+            'membership' => "-",
+            'experience' => "-",
+            'address' => "-",
+        ]);
+
+        $this->redirectTo = route('profiles.edit', ['profile' => $user->profile->id]);
+
+        return $user;
     }
 }

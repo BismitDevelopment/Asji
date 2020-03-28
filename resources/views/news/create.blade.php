@@ -10,6 +10,7 @@
   <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
   <!-- CSS -->
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/newsEvent.css') }}">
 </head>
 <body>
 <div class="container my-4">
@@ -39,9 +40,6 @@
     </form>
 </div>
 </body>
-<script>
-    // CKEDITOR
-    CKEDITOR.replace('news_body');
-</script>
+<script src="{{ asset('js/news.js') }}"></script>
 <script src="{{ asset('js/app.js') }}"></script>
 </html>

@@ -11,6 +11,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/newsEvent.css') }}">
 </head>
 <body>
     <div class="content">
@@ -40,7 +41,7 @@
                         $bodySnippet = str_replace(array('<p>', '<p>'), '', $bodySnippet);
                         $bodySnippet = substr($bodySnippet, 0, 500) . "...";
                     @endphp
-                    <div class="news-item my-5" onclick="location.href='{{ url('/news/admin/' . $item->id . '/post') }}'">
+                    <div class="news-item my-5" onclick="location.href='{{ url('/news/admin/' . $item->id . '/post') }}'" style="display: none">
                         <span><b>{{$item->news_title}},</b><span class="text-muted"> at {{$date}}</span></span>
                         <p> {!! $bodySnippet !!} </p>
                     </div>
@@ -48,8 +49,8 @@
             </div>
 
             {{-- Load More --}}
-            <div class="w-100 my-2 d-flex justify-content-center">
-                <button class="btn btn-black" id="loadMore">Load More</button>
+            <div class="w-100 my-2 d-flex justify-content-center" id="loadMore" style="display: none">
+                <button class="btn btn-black" >Load More</button>
             </div>
         </div>
     </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\FileSaver;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Str;
@@ -40,31 +41,27 @@ class EventController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'event_date' => 'required|date|after:today',
+            'event_date' => 'required|date',
             'event_name' => 'required',
             'event_location' => 'required',
             'event_description' => 'required',
-            'file_name' => 'required',
-            'file_name.*' => 'image|mimes:jpeg,png,jpg,svg|max:2048',
+            'file[]' => 'image|mimes:jpeg,png,jpg,svg|max:2048',
         ]);
-        // return dd($request);
-        // Ngolah semua foto yang di uploade
-        foreach ($request->file('file_name') as $image) {
-            $name = $image->getClientOriginalName();
-            $name =  Str::random(15) . "." . explode('.',$name)[1];
-            $image->move(public_path().'/storage/image/', $name);
-            $data[] = $name;
-        }
-
+        
+        
         // Ngolah sisa datanya
         $upload_event = new Event;
         $upload_event->event_date = date('Y-m-d', strtotime($request->event_date));
         $upload_event->event_name = $request->event_name;
         $upload_event->event_location = $request->event_location;
         $upload_event->event_description = $request->event_description;
-        $upload_event->file_name = json_encode($data);
         $upload_event->save();
-        return redirect('/event/admin/add')->with('success', 'Success add data.');
+
+        if($files = $request->file){
+            FileSaver::save_image_helper($upload_event, $files);
+        }
+
+        return redirect(route('events.index'))->with('success', 'Success add data.');
     }
 
     /**
@@ -100,27 +97,29 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // make file list
-        $oldFileName = explode(',' , str_replace(array('[', '"', ']'), '', Event::find($id)->file_name));
-        // put all file in list
-        if ($request->file('file_name') != null) {
-            foreach ($request->file('file_name') as $image) {
-                $name = $image->getClientOriginalName();
-                $name =  Str::random(15) . "." . explode('.',$name)[1];
-                $image->move(public_path().'/storage/image/', $name);
-                array_push($oldFileName, $name);
-            }
+        $this->validate($request, [
+            'event_date' => 'required|date',
+            'event_name' => 'required',
+            'event_location' => 'required',
+            'event_description' => 'required',
+            'file[]' => 'image|mimes:jpeg,png,jpg,svg|max:2048',
+        ]);
+        
+        $event = Event::find($id);
+
+        if($files = $request->file){
+            FileSaver::save_image_helper($event, $files);
         }
 
-        $event = Event::where('id', $id)
+        Event::where('id', $id)
                 ->update([
                     'event_name' => $request->event_name,
                     'event_date' => date('Y-m-d', strtotime($request->event_date)),
                     'event_location' => $request->event_location,
                     'event_description' => $request->event_description, 
-                    'file_name' => json_encode($oldFileName) 
                 ]);
-        return redirect('/event/admin/' . $id . '/edit')->with('success', 'Success, edited data!');
+
+        return redirect(route('events.show', ['event'=>$id]))->with('success', 'Success, edited data!');
     }
 
     /**
@@ -132,51 +131,18 @@ class EventController extends Controller
     public function destroy(Request $request)
     {
         $data = Event::find($request->id);
-        $fileName = $data->file_name;
-        $fileName = explode(',', str_replace(array('[', '"', ']'), '', $fileName));
-        foreach ($fileName as $img){
-            Storage::delete('public/image/' . $img);
+        if ($images = $data->images) {
+            # code...
+            foreach ($images as $image ) {
+                # code...
+                Storage::disk('public')->delete('images/'.$image->path);
+            }
         }
+        $data->images()->delete();
+
         $data->delete();
-        return redirect('/event/admin');
-    }
-    /**
-     * indexAdmin function
-     */
-    public function editPhoto(Request $request, $id)
-    {
-        $data = Event::find($id);
-        $deleteTarget = $request->file_name;
-        $file_name = explode(',' , str_replace(array('[', '"', ']'), '', $data->file_name));
-        $updatePhoto = array();
-        foreach ($file_name as $item) {
-            if ($item == $deleteTarget) {
-                Storage::delete('public/image/' . $deleteTarget);
-                $file_name = array_diff($file_name, array($deleteTarget));
-            }
-            else{
-                $updatePhoto[] = $item;
-            }
-        }
-        Event::where('id', $id)->update(['file_name' => json_encode($updatePhoto)]);
-        return redirect('/event/admin/' . $id . '/edit')->with('success', 'Success! You have deleted the picture');
+        
+        return redirect(route('events.index'));
     }
 
-    /**
-     * indexAdmin function
-     */
-    public function indexAdmin()
-    {
-        $data = Event::orderBy('created_at', 'desc')->paginate(3);
-        return view('event.indexAdmin', ['event' => $data]);
-    }
-
-    /**
-     * showAdmin function
-     */
-    public function showAdmin($id)
-    {
-        $data = Event::where('id', $id)->first();
-        return view('event.showAdmin', ['event' => $data]);
-    }
 }

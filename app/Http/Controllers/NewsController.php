@@ -37,14 +37,14 @@ class NewsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'news_title' => 'required',
-            'news_body' => 'required'
+            'news_title' => 'required|string',
+            'news_body' => 'required|string'
         ]);
         $upload_news = new News;
         $upload_news->news_title = $request->news_title;
         $upload_news->news_body = $request->news_body;
         $upload_news->save();
-        return redirect('/news/admin/add')->with('success', 'Success add News.');
+        return redirect(route('news.index'))->with('success', 'Success add News.');
     }
 
     /**
@@ -85,7 +85,7 @@ class NewsController extends Controller
                     'news_title' => $request->news_title,
                     'news_body' => $request->news_body
                 ]);
-        return redirect('/news/admin/' . $id . '/edit')->with('success', 'Success, edited data!');
+        return redirect(route('news.show', ['news'=>$id]))->with('success', 'Success, edited data!');
     }
 
     /**
@@ -98,25 +98,8 @@ class NewsController extends Controller
     {
         $data = News::find($request->id);
         $data->delete();
-        return redirect('/news/admin');
+        return redirect(route('news.index'));
     }
 
-    /**
-     * indexAdmin function
-     */
-    public function indexAdmin()
-    {
-        $data = News::orderBy('created_at', 'desc')->get();
-        return view('news.indexAdmin', ['news' => $data]);
-    }
-
-    /**
-     * showAdmin function
-     */
-    public function showAdmin($id)
-    {
-        $data = News::where('id', $id)->first();
-        return view('news.showAdmin', ['news' => $data]);
-    }
 }
 
