@@ -52,7 +52,7 @@ Route::get('/contact', function(){
 })->name('contact');
 
 Route::resource('profiles', 'ProfileController')->except([
-    'delete', 'create'
+    'delete', 'create',
 ]);
 
 Route::resource('journals', 'JournalController')->only([

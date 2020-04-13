@@ -143,7 +143,7 @@ class PublicLectureController extends Controller
 
         $lecture->images()->delete();
 
-        $lecture->destroy();
+        $lecture->delete();
 
         return redirect(route('lectures.index'));
     }

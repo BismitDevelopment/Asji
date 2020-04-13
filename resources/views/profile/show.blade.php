@@ -19,6 +19,19 @@
                     <img src="{{asset('icon/back.svg')}}" alt="Back to Members List" width="25%">
                 </a>
             </div>
+
+            @auth
+                <div class="row">
+                    @if(auth()->user()->is_admin || auth()->user()->id === $profile->id)
+                    <div class="col">
+                        <a href="{{ route('profiles.edit', ['profile'=>$profile->id]) }}">
+                            <button type="button" class="btn btn-primary" style="width: 100%">Edit</button>
+                        </a>
+                    </div>
+                    @endif
+
+                </div>
+            @endauth
         </div>
 
         <div class="col-md-9 mx-auto">

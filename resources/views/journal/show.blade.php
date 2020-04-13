@@ -59,6 +59,25 @@
                     {{ $journal->description }}
                 </div>
             </div>
+
+            @auth
+                @if(auth()->user()->is_admin)
+                <div class="row mx-auto">
+                    <div class="col">
+                        <a href="{{ route('admin.journals.edit', ['journal'=>$journal->id]) }}">
+                            <button type="button" class="btn btn-primary" style="width: 100%">Edit</button>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <form action="{{ route('admin.journals.destroy', ['journal'=>$journal->id]) }}" method="post">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit" class="btn btn-danger" style="width: 100%">Delete</button>
+                        </form>
+                    </div>
+                </div>
+                @endif
+            @endauth
         </div>
     </div>
 

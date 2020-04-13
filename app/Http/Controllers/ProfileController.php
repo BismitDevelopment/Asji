@@ -12,11 +12,6 @@ use Illuminate\Support\Facades\Storage;
 class ProfileController extends Controller
 {
 
-    public function __construct(){
-        $this->middleware('auth')->except('index','show');
-        $this->middleware('update-profile')->except('index','show');
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -79,7 +74,7 @@ class ProfileController extends Controller
         // dd(User::find($profile)->first()->profile);
         // dd($user->profile);
         // dd(compact(['profile', 'image']));
-        if(Gate::allows('update-profile', $profile)){
+        if(Gate::allows('update_profile', $profile)){
             $image = $profile->image;
             return view('profile.edit', compact('profile','image'));
         } else {

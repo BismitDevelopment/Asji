@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
+use App\Profile;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -34,7 +35,7 @@ class AuthServiceProvider extends ServiceProvider
             return $user->is_member;
         });
 
-        Gate::define('update-profile', function($user, $profile){
+        Gate::define('update_profile', function($user, $profile){
             return $user->id === $profile->user_id;
         });
 

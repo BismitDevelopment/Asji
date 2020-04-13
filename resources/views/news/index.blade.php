@@ -14,6 +14,7 @@
         {{ session('status') }}
     </div>
     @endif
+
     <div class="about d-flex flex-column">
         <div class="header d-flex flex-column align-self-center align-items-center">
             <h3>About</h3>
@@ -38,6 +39,7 @@
         <div class="news-list">
             @foreach ($news as $item)
                 @php
+                    
                     // date
                     $date = date('j F, Y', strtotime($item->created_at));
                     // news body snippet
