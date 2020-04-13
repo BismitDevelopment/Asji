@@ -62,6 +62,10 @@ Route::resource('journals', 'JournalController')->only([
         'can:is_member'
         ]);
 
+Route::get('documents/{document}/show', function(App\Document $document){
+    return view('showpdf', compact('document'));
+})->name('show_pdf')->middleware('auth','can:is_member');
+
 Route::resource('lectures', 'PublicLectureController')->only([
     'index', 'show'
 ]);

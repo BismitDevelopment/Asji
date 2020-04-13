@@ -60,6 +60,16 @@
                 </div>
             </div>
 
+            @if ($document = $journal->documents[0])
+                <div class="row mx-auto">
+                    <div class="col">
+                        <a href="{{ route('show_pdf', ['document'=>$document->id]) }}">
+                            <button type="button" class="btn btn-secondary" style="width: 100%">SHOW PDF</button>
+                        </a>
+                    </div>
+                </div>
+            @endif
+
             @auth
                 @if(auth()->user()->is_admin)
                 <div class="row mx-auto">
@@ -80,6 +90,8 @@
             @endauth
         </div>
     </div>
+    <div class="row">
 
+    </div>
 @endsection
 

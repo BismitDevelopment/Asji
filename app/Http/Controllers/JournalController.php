@@ -6,6 +6,7 @@ use App\Journal;
 use App\FileSaver;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Document;
 
 class JournalController extends Controller
 {
@@ -68,7 +69,7 @@ class JournalController extends Controller
             FileSaver::save_image_helper($journal, $images);
         }
         
-        return redirect('journals.index');
+        return redirect(route('journals.index'));
 
     }
 
@@ -148,12 +149,16 @@ class JournalController extends Controller
     public function destroy(Journal $journal)
     {
         //
-        if($documents = $journal->documents || $images = $journal->images){
+        if($documents = $journal->documents){
             foreach ($documents as $doc) {
                 # code...
                 Storage::disk('public')->delete('documents/'.$doc->path);
             }
 
+        }
+        
+        if ($images = $journal->images) {
+            # code...
             foreach ($images as $img) {
                 # code...
                 Storage::disk('public')->delete('images/'.$img->path);
