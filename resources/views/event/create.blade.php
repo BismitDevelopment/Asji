@@ -3,16 +3,13 @@
 @section('script')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
-<script src="{{ asset('js/date.js')}}"></script>
+<script src="{{ asset('js/events.js')}}"></script>
 @endsection
 
-@section('css')
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.standalone.min.css" rel="stylesheet">
-@endsection
 
 @section('css')
-  <link rel="stylesheet" href="{{ asset('css/newsEvent.css') }}">
-
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.standalone.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{{ asset('css/newsEvent.css') }}">
 @endsection
 
 @section('content')
@@ -20,20 +17,28 @@
       @csrf
       <!-- Image Upload -->
       <h3 class="jumbotron my-4 bg-dark text-light"><i class="material-icons">cloud_upload</i> Image Upload</h3> 
-      <div class="input-group control-group " >
-        <input type="file" name="file[]" class="form-control">
-      </div>
 
-      <div class="control-group input-group" style="margin-top:10px">
-        <input type="file" name="file[]" class="form-control">
-      </div>
+      <div class="form-row" style="padding-bottom:8px">
+          <div class="custom-file col">
+              <input type="file" class="custom-file-input" id="customFile1" name="file[]">
+              <label class="custom-file-label" for="customFile1">Choose file 1</label>
+          </div>
 
-      <div class="control-group input-group" style="margin-top:10px">
-        <input type="file" name="file[]" class="form-control">
+          <div class="custom-file col">
+              <input type="file" class="custom-file-input" id="customFile2" name="file[]">
+              <label class="custom-file-label" for="customFile2">Choose file 2</label>
+          </div>
+
+          <div class="custom-file col">
+              <input type="file" class="custom-file-input" id="customFile3" name="file[]">
+              <label class="custom-file-label" for="customFile3">Choose file 3</label>
+          </div>
       </div>
-      @error('file_name')
+      
+      @error('file')
         <div class="alert alert-danger my-3">{{ $message }}</div>
       @enderror
+
       <!-- Yang lain -->
       <h3 class="jumbotron my-4 bg-dark text-light">Add Data</h3>
       <div class="form-group">

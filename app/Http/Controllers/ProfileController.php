@@ -11,6 +11,12 @@ use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('auth')->except('index','show');
+        $this->middleware('update-profile')->except('index','show');
+    }
+
     /**
      * Display a listing of the resource.
      *

@@ -42,6 +42,9 @@
         </div>
     </div>
 
+    <div class="title-form">
+        Images
+    </div>
     <div class="form-row" style="padding-bottom:8px">
         <div class="custom-file col">
             <input type="file" class="custom-file-input" id="customFile1" name="file[]">

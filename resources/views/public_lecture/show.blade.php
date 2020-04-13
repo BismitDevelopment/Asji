@@ -22,7 +22,7 @@
                     @if (($images = $lecture->images) && count($lecture->images)!=0)
                         @for ($i = 0; $i < count($images); $i++)
                             <div class="carousel-item @if($i===0) active @endif">
-                                <img class="d-block w-100" src="{{ asset('images/'.$images[$i]->path) }}" alt="First slide">
+                                <img class="d-block w-100" src="{{ asset('images/'.$images[$i]->path) }}" alt="Slide">
                             </div>
                         @endfor
                     @else
@@ -52,14 +52,14 @@
             <div class="lecture-detail my-4">
                 <h1 class="text-center" style="font-weight: bold;">{{ $lecture->title }}</h1>
                 <div class="location mx-auto col-md-4" style="display: flex; align-items:center; justify-content:center;">
-                    <img src="{{ asset('icon/location.png')}}" alt="">{{$lecture->location}}</span> 
+                    <img src="{{ asset('icon/location.png')}}" alt=""><span>{{$lecture->location}}</span> 
                     <img src="{{ asset('icon/today.png')}}" alt=""><span>{{date('F j, Y', strtotime($lecture->lecture_date))}}</span> 
                 </div>
                 <div class="lecture-description">
                     {{ $lecture->description }}
                 </div>
             </div>
-        </div>
+        </div>  
     </div>
 
 @endsection

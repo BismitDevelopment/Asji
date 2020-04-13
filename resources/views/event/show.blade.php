@@ -51,7 +51,7 @@
             <div class="event-detail my-4">
                 <h1 class="text-center" style="font-weight: bold;">{{$event->event_name}}</h1>
                 <div class="location mx-auto col-md-4" style="display: flex; align-items:center; justify-content:center;">
-                    <img src="{{ asset('icon/location.png')}}" alt="">{{$event->event_location."  "}}</span> 
+                    <img src="{{ asset('icon/location.png')}}" alt=""><span>{{$event->event_location."  "}}</span> 
                     <img src="{{ asset('icon/today.png')}}" alt=""><span>{{date('F j, Y', strtotime($event->event_date))}}</span> 
                 </div>
                 <div class="event-description">

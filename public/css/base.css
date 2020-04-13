@@ -50,3 +50,7 @@ body{
 .footer .copyright{
     margin-top: 5em;
 }
+
+th {
+    text-align: center;
+}

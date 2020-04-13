@@ -45,25 +45,48 @@
             <input style="width:100%" placeholder="YYYY-MM-DD" id="inputDate" class="datepicker" data-date-format="yyyy-mm-dd" name="publish_date">
         </div>
     </div>
-    
 
+    <div class="title-form">
+        Images
+    </div>
+    <div class="form-row" style="padding-bottom:8px" id="form2">
+        <div class="custom-file col">
+            <input type="file" class="custom-file-input" id="customFile1" name="image[]">
+            <label class="custom-file-label" for="customFile1">Choose cover image</label>
+        </div>
+
+        <div class="custom-file col">
+            <input type="file" class="custom-file-input" id="customFile2" name="image[]">
+            <label class="custom-file-label" for="customFile2">Choose image 2</label>
+        </div>
+
+        <div class="custom-file col">
+            <input type="file" class="custom-file-input" id="customFile3" name="image[]">
+            <label class="custom-file-label" for="customFile3">Choose image 3</label>
+        </div>
+    </div>
+
+    <div class="title-form">
+        Documents
+    </div>
     <div class="form-row" style="padding-bottom:8px">
         <div class="custom-file col">
             <input type="file" class="custom-file-input" id="customFile1" name="file[]">
-            <label class="custom-file-label" for="customFile1">Choose file 1</label>
+            <label class="custom-file-label" for="customFile1">Choose document 1</label>
         </div>
 
         <div class="custom-file col">
             <input type="file" class="custom-file-input" id="customFile2" name="file[]">
-            <label class="custom-file-label" for="customFile2">Choose file 2</label>
+            <label class="custom-file-label" for="customFile2">Choose document 2</label>
         </div>
 
         <div class="custom-file col">
             <input type="file" class="custom-file-input" id="customFile3" name="file[]">
-            <label class="custom-file-label" for="customFile3">Choose file 3</label>
+            <label class="custom-file-label" for="customFile3">Choose document 3</label>
         </div>
     </div>
 
+    
     <input class="btn btn-primary" type="submit" value="SUBMIT">
 
 </form>

@@ -1,18 +1,22 @@
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Edit Data</title>
-  <!-- Bootstrap and Jquery -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-  <!-- Text-Editor CDN -->
-  <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+@extends('layouts.app')
+
+@section('title')
+<title>Edit Data</title>
+@endsection
+
+@section('script')
+<!-- Text-Editor CDN -->
+<script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+<script src="{{ asset('js/news.js') }}"></script>
+@endsection
+
+@section('css')
+    
   <!-- CSS -->
-  <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/newsEvent.css') }}">
-</head>
-<body>
+  <link rel="stylesheet" href="{{ asset('css/newsEvent.css') }}">
+@endsection
+
+@section('content')
 <div class="container my-4">
       @if(session('success'))
       <div class="alert alert-success">
@@ -40,7 +44,4 @@
         <button type="submit" class="btn btn-info" style="margin-top:12px"><i class="glyphicon glyphicon-check"></i> Submit</button>
     </form>
 </div>
-</body>
-<script src="{{ asset('js/news.js') }}"></script>
-<script src="{{ asset('js/app.js') }}"></script>
-</html>
+@endsection

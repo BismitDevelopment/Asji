@@ -47,7 +47,29 @@
         </div>
     </div>
     
-
+    <div class="row">
+        Images
+    </div>
+    <div class="form-row" style="padding-bottom:8px">
+        <div class="custom-file col">
+            <input type="file" class="custom-file-input" id="customFile1" name="image[]">
+            <label class="custom-file-label" for="customFile1">Choose cover image</label>
+        </div>
+        
+        <div class="custom-file col">
+            <input type="file" class="custom-file-input" id="customFile2" name="image[]">
+            <label class="custom-file-label" for="customFile2">Choose image 2</label>
+        </div>
+        
+        <div class="custom-file col">
+            <input type="file" class="custom-file-input" id="customFile3" name="image[]">
+            <label class="custom-file-label" for="customFile3">Choose image 3</label>
+        </div>
+    </div>
+    
+    <div class="row">
+        Documents
+    </div>
     <div class="form-row" style="padding-bottom:8px">
         <div class="custom-file col">
             <input type="file" class="custom-file-input" id="customFile1" name="file[]">

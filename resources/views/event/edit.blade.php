@@ -3,6 +3,7 @@
 @section('script')
   <!-- Text-Editor CDN -->
   <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+  <script src="{{ asset('js/events.js')}}"></script>
 @endsection
 
 @section('css')
@@ -23,18 +24,27 @@
       @method('PUT')
       <!-- Image Upload -->
       <h3 class="jumbotron my-4 bg-dark text-light"><i class="material-icons">cloud_upload</i> Add Image</h3> 
-        <div class="input-group control-group " >
-          <input type="file" name="file[]" class="form-control">
-        </div>
-        <div class="control-group input-group" style="margin-top:10px">
-          <input type="file" name="file[]" class="form-control">
-        </div>
-        <div class="control-group input-group" style="margin-top:10px">
-          <input type="file" name="file[]" class="form-control">
-        </div>
+      <div class="form-row" style="padding-bottom:8px">
+          <div class="custom-file col">
+              <input type="file" class="custom-file-input" id="customFile1" name="file[]">
+              <label class="custom-file-label" for="customFile1">Choose file 1</label>
+          </div>
+
+          <div class="custom-file col">
+              <input type="file" class="custom-file-input" id="customFile2" name="file[]">
+              <label class="custom-file-label" for="customFile2">Choose file 2</label>
+          </div>
+
+          <div class="custom-file col">
+              <input type="file" class="custom-file-input" id="customFile3" name="file[]">
+              <label class="custom-file-label" for="customFile3">Choose file 3</label>
+          </div>
+      </div>
+
       @error('file')
         <div class="alert alert-danger my-3">{{ $message }}</div>
       @enderror
+      
       <!-- Add Data -->
       <h3 class="jumbotron my-4 bg-dark text-light">Add Data</h3>
 

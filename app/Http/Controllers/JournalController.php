@@ -16,7 +16,9 @@ class JournalController extends Controller
     public function index()
     {
         //
-        return view('journal.index');
+        $journals = Journal::paginate(3);
+
+        return view('journal.index', compact('journals'));
     }
 
     /**
@@ -44,6 +46,7 @@ class JournalController extends Controller
             'publish_date' => 'required|date|date_format:Y-m-d',
             'writer' => 'required|string|max:255',
             'description' => 'required|string',
+            'image[]' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'file[]' => 'mimes:pdf,docx,doc|max:102400',
         ]);
 
@@ -59,6 +62,12 @@ class JournalController extends Controller
         if($files = $request->file){
             FileSaver::save_document_helper($journal, $files);
         }
+
+        if($images = $request->image){
+            FileSaver::save_image_helper($journal, $images);
+        }
+        
+        return redirect('journals.index');
 
     }
 
@@ -106,11 +115,16 @@ class JournalController extends Controller
             'publish_date' => 'required|date|date_format:Y-m-d',
             'writer' => 'required|string|max:255',
             'description' => 'required|string',
+            'image[]' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'file[]' => 'mimes:pdf,docx,doc|max:102400',
         ]);
 
         if($files = $request->file){
             FileSaver::save_document_helper($journal, $files);
+        }
+
+        if($images = $request->image){
+            FileSaver::save_image_helper($journal, $images);
         }
 
         $journal->title = $request->title;

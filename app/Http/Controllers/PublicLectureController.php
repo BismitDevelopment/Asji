@@ -17,7 +17,7 @@ class PublicLectureController extends Controller
     public function index()
     {
         //
-        $lectures = PublicLecture::paginate(3);
+        $lectures = PublicLecture::paginate(10);
         return view('public_lecture.index', compact('lectures'));
     }
 

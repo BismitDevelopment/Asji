@@ -16,4 +16,8 @@ class Journal extends Model
         
         return $this->hasMany('App\Document');
     }
+
+    public function images(){
+        return $this->morphMany('App\Image', 'imageable');
+    }
 }

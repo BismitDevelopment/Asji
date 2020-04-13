@@ -8,10 +8,6 @@
 <link rel="stylesheet" href="{{ asset('css/newsEvent.css') }}">
 @endsection
 
-@section('header')
-
-@endsection
-
 @section('content')
     @if (session('status'))
     <div class="alert alert-success" role="alert">

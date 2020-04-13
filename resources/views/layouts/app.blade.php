@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    @yield('title')
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -20,7 +20,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     
     <!--Icons-->
-    {{-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> --}}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -44,20 +44,23 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('events.index') }}">{{ __('Event') }}</a>
+                            <a class="nav-link" href="{{ route('events.index') }}">{{ __('Events') }}</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('lectures.index') }}">{{ __('Public Lecture') }}</a>
+                            <a class="nav-link" href="{{ route('lectures.index') }}">{{ __('Public Lectures') }}</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('profiles.index') }}">{{ __('Member') }}</a>
+                            <a class="nav-link" href="{{ route('profiles.index') }}">{{ __('Members') }}</a>
                         </li>
 
                         {{-- <li class="nav-item">
                             <a class="nav-link" href="{{ route('contact') }}">{{ __('Contact Us') }}</a>
                         </li> --}}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('journals.index') }}">{{ __('Journals') }}</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
