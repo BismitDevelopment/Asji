@@ -49661,8 +49661,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /run/media/zuhdi/WIN_D/Backup_Zuhdi/Work/BEM/Bismit_2020/Projects/Asji/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /run/media/zuhdi/WIN_D/Backup_Zuhdi/Work/BEM/Bismit_2020/Projects/Asji/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /run/media/zuhdi/WIN_D/Backup_Zuhdi/Work/BEM/Bismit_2020/Projects/Asji_Repo_Data/Asji/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /run/media/zuhdi/WIN_D/Backup_Zuhdi/Work/BEM/Bismit_2020/Projects/Asji_Repo_Data/Asji/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
