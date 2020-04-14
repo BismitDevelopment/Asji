@@ -60,14 +60,16 @@
                 </div>
             </div>
 
-            @if ($document = $journal->documents[0])
-                <div class="row mx-auto">
-                    <div class="col">
-                        <a href="{{ route('show_pdf', ['document'=>$document->id]) }}">
-                            <button type="button" class="btn btn-secondary" style="width: 100%">SHOW PDF</button>
-                        </a>
+            @if ($documents = $journal->documents)
+                @foreach ($documents as $doc)
+                    <div class="row mx-auto">
+                        <div class="col">
+                            <a href="{{ route('show_pdf', ['document'=>$doc->id]) }}">
+                                <button type="button" class="btn btn-secondary" style="width: 100%">SHOW PDF</button>
+                            </a>
+                        </div>
                     </div>
-                </div>
+                @endforeach
             @endif
 
             @auth
