@@ -19,7 +19,6 @@ class JournalController extends Controller
     {
         //
         $journals = Journal::paginate(3);
-
         return view('journal.index', compact('journals'));
     }
 

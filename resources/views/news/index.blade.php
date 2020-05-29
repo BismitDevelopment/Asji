@@ -8,13 +8,18 @@
 <link rel="stylesheet" href="{{ asset('css/newsEvent.css') }}">
 @endsection
 
+@section('jumbotron')
+    <div class="jumbotron jumbotron-fluid">
+        <img class="bg-image" src="{{ asset('contents/home_jumbotron.png') }}" alt="home">
+    </div>
+@endsection
+
 @section('content')
     @if (session('status'))
     <div class="alert alert-success" role="alert">
         {{ session('status') }}
     </div>
     @endif
-
     <div class="about d-flex flex-column">
         <div class="header d-flex flex-column align-self-center align-items-center">
             <h3>About</h3>
@@ -31,7 +36,7 @@
             <p>Morbi at laoreet neque. Fusce porttitor erat nec orci condimentum, hendrerit tempor lacus bibendum.</p>
         </div>
     </div>
-    <div class="news d-flex flex-column">
+    <div class="py-4 news d-flex flex-column">
         <div class="header d-flex flex-column align-self-center align-items-center">
             <h3>News</h3>
             <span class="line"></span>

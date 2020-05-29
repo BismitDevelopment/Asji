@@ -12,7 +12,9 @@ class Profile extends Model
         'discipline','education', 'membership', 'experience', 'address',
     ];
 
-    
+    protected $casts = [
+        'user_id' => 'integer'
+    ];
 
     /**
      * Get the Profile's Image

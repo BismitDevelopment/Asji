@@ -16,9 +16,6 @@
             <tbody>
                 @for ($i = 0; $i < count($journals); $i++)
                     <tr>
-                    {{-- @php
-                        dd($journals[$i]->images)
-                    @endphp --}}
                     @if (count($journals[$i]->images)!=0)
                         <th scope="row"><img src="{{ asset('images/'.$journals[$i]->images[0]->path) }}" alt="" style="max-width: 200px"></th>
                     @else

@@ -1,3 +1,13 @@
+.jumbotron{
+  padding: 0;
+  height: 600px;
+}
+.jumbotron .bg-image {
+  width: 100%;
+  max-height: 100%;
+  z-index: -1;
+}
+
 .event-list .event-item .dot {
   display: block;
   position: absolute;

@@ -70,10 +70,6 @@ class ProfileController extends Controller
      */
     public function edit(Profile $profile)
     {
-        //
-        // dd(User::find($profile)->first()->profile);
-        // dd($user->profile);
-        // dd(compact(['profile', 'image']));
         if(Gate::allows('update_profile', $profile)){
             $image = $profile->image;
             return view('profile.edit', compact('profile','image'));
@@ -107,8 +103,6 @@ class ProfileController extends Controller
 
             ]);
     
-            // echo(class_basename($profile));
-            // dd(count($profile->images));
             if ($files = $request->file) {
                 FileSaver::save_image_helper($profile, $files);
             }

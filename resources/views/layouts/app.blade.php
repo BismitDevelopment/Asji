@@ -99,8 +99,9 @@
             </div>
         </nav>
 
-        <main class="py-4">
-            <div class="container">
+        <main>
+            @yield('jumbotron')
+            <div class="container py-4">
                 @yield('content')
             </div>
         </main>
