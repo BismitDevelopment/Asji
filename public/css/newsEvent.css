@@ -1,11 +1,25 @@
 .jumbotron{
   padding: 0;
   height: 600px;
+  margin: 0;
 }
 .jumbotron .bg-image {
   width: 100%;
+  min-height: 95%;
   max-height: 100%;
   z-index: -1;
+}
+
+@media only screen and (max-width: 1000px){
+  .jumbotron{
+    height: 500px;
+  }
+}
+
+@media only screen and (max-width: 800px){
+  .jumbotron{
+    height: 300px;
+  }
 }
 
 .event-list .event-item .dot {
