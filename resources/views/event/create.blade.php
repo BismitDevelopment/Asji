@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    <title>Create Event</title>
+@endsection
+
 @section('script')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
@@ -13,7 +17,7 @@
 @endsection
 
 @section('content')
-  <form method="post" action="{{ route('admin.events.store')}}" enctype="multipart/form-data">
+  <form class="form-create" method="post" action="{{ route('admin.events.store')}}" enctype="multipart/form-data">
       @csrf
       <!-- Image Upload -->
       <h3 class="jumbotron my-4 bg-dark text-light"><i class="material-icons">cloud_upload</i> Image Upload</h3> 

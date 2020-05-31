@@ -15,7 +15,7 @@
 @endsection
 
 @section('jumbotron')
-    <div class="jumbotron jumbotron-fluid">
+    <div class="home jumbotron jumbotron-fluid">
         <img class="bg-image" src="{{ asset('contents/home_jumbotron.png') }}" alt="home">
     </div>
 @endsection

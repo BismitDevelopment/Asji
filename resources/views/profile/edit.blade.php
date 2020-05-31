@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('title')
+    <title>Edit Profile</title>
+@endsection
 
 @section('content')
 

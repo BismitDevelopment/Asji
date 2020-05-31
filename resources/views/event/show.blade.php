@@ -1,4 +1,11 @@
 @extends('layouts.app')
+
+@section('title')
+    <title>
+        {{ $event->event_name }}
+    </title>
+@endsection
+
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/eventEvent.css') }}">
 @endsection
@@ -59,22 +66,22 @@
                 </div>
             </div>
             @auth
-                @if(auth()->user()->is_admin)
-                <div class="row">
-                    <div class="col">
-                        <a href="{{ route('admin.events.edit', ['event'=>$event->id]) }}">
-                            <button type="button" class="btn btn-primary" style="width: 100%">Edit</button>
-                        </a>
-                    </div>
-                    <div class="col">
-                        <form action="{{ route('admin.events.destroy', ['event'=>$event->id]) }}" method="post">
-                            @method('DELETE')
-                            @csrf
-                            <button type="submit" class="btn btn-danger" style="width: 100%">Delete</button>
-                        </form>
-                    </div>
+            @if(auth()->user()->is_admin)
+            <div class="row">
+                <div class="col">
+                    <a href="{{ route('admin.events.edit', ['event'=>$event->id]) }}">
+                        <button type="button" class="btn btn-primary" style="width: 100%">Edit</button>
+                    </a>
                 </div>
-                @endif
+                <div class="col">
+                    <form action="{{ route('admin.events.destroy', ['event'=>$event->id]) }}" method="post">
+                        @method('DELETE')
+                        @csrf
+                        <button type="submit" class="btn btn-danger" style="width: 100%">Delete</button>
+                    </form>
+                </div>
+            </div>
+            @endif
             @endauth
         </div>
     </div>

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-<title>Edit Data</title>
+    <title>Edit News</title>
 @endsection
 
 @section('script')

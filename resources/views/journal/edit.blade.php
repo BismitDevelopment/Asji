@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    <title>Edit Journal</title>
+@endsection
+
 @section('script')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
     <script src="{{ asset('js/date.js')}}"></script>

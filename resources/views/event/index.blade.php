@@ -18,6 +18,13 @@
 </div> 
 @endif
     <h2 style="font-weight: bold" class="text-center">ASJI's Events</h2>
+    @auth
+    @if (Auth::user()->is_admin)
+        <a href="{{ route('admin.events.create') }}">
+            <button type="button" class="btn btn-primary btn-lg btn-block my-2">Create Event</button>
+        </a>
+    @endif
+    @endauth
     <div class="event-list" id="eventList">
         @foreach ($event as $item)
         {{-- php for split data --}}
@@ -40,10 +47,10 @@
             <span class="dot"></span>
             <h5 style="font-weight: bold;">{{$item->event_name}}</h5>
             <div class="location" style="display: flex; align-items:center">
-              <img src="{{ asset('icon/today.png')}}" alt=""><span>{{$date}}</span> 
+                <img src="{{ asset('icon/today.png')}}" alt=""><span>{{$date}}</span> 
             </div>
             <div class="location" style="display: flex; align-items:center">
-              <img src="{{ asset('icon/location.png')}}" alt=""><span>{{$item->event_location}}</span> 
+                <img src="{{ asset('icon/location.png')}}" alt=""><span>{{$item->event_location}}</span> 
             </div>
             <p>{!!  $desSnippet !!}</p>
         </div>

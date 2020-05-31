@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+@section('title')
+    <title>
+        {{ $news->news_title }}
+    </title>
+@endsection
+
 @section('script')
 <script src="{{ asset('js/news.js')}}"></script>
 @endsection

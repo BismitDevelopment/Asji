@@ -1,14 +1,17 @@
 @extends('layouts.app')
 
+@section('title')
+    <title>
+        {{ $journal->title }}
+    </title>
+@endsection
+
 @section('content')
     <div class="card">
         <div class="card-header bg-secondary">
             <div id="journal-carousel" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     @if (($images = $journal->images) && count($journal->images)!=0)
-                    {{-- @php
-                        dd($images);
-                    @endphp --}}
                         @for ($i = 0; $i < count($images); $i++)
                             <li data-target="#journal-carousel" data-slide-to="{{$i}}" class="@if($i===0) active @endif"></li>
                         @endfor
@@ -62,7 +65,7 @@
 
             @if ($documents = $journal->documents)
                 @foreach ($documents as $doc)
-                    <div class="row mx-auto">
+                    <div class="row mx-auto my-2">
                         <div class="col">
                             <a href="{{ route('show_pdf', ['document'=>$doc->id]) }}">
                                 <button type="button" class="btn btn-secondary" style="width: 100%">SHOW PDF</button>

@@ -1,13 +1,20 @@
 @extends('layouts.app')
 
+@section('title')
+    <title>Edit Public Lecture</title>
+@endsection
+
 @section('script')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
     <script src="{{ asset('js/date.js')}}"></script>
+@endsection
+
+@section('css')
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.standalone.min.css" rel="stylesheet">
 @endsection
 
 @section('content')
 
-
-{{-- {{$lecture}} --}}
 <div >
     <h2 class="text-center"><b>Edit Lecture</b></h2>
 </div>

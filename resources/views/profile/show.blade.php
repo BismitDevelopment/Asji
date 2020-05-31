@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+@section('title')
+    <title>
+        {{ $profile->first_name }} Profile
+    </title>
+@endsection
+
 @section('content')
     <h2 class="text-center" style="font-weight: bold">{{ $profile->first_name." ".$profile->last_name }} Profile</h2>
 

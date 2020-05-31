@@ -35,6 +35,10 @@ class AuthServiceProvider extends ServiceProvider
             return $user->is_member;
         });
 
+        Gate::define('access_journal', function($user){
+            return $user->is_member | $user->is_admin;
+        });
+
         Gate::define('update_profile', function($user, Profile $profile){
             return $user->id === $profile->user_id;
         });

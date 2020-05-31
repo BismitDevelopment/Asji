@@ -8,6 +8,11 @@
 
 @section('content')
     <h2 class="text-center" style="font-weight: bold">Journals</h2>
+    @if (Auth::user()->is_admin)
+        <a href="{{ route('admin.journals.create') }}">
+            <button type="button" class="btn btn-primary btn-lg btn-block my-2">Create Journal</button>
+        </a>
+    @endif
     <div class="table-responsive-md">
         <table class="table table-bordered">
             <thead class="thead-dark">

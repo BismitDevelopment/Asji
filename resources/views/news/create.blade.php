@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-<title>Add News</title>
+    <title>Create News</title>
 @endsection
 
 @section('script')

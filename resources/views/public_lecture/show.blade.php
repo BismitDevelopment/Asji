@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+@section('title')
+    <title>
+        {{ $lecture->title }} Profile
+    </title>
+@endsection
+
 @section('content')
     <div class="card">
         <div class="card-header bg-secondary">
@@ -59,6 +65,24 @@
                     {{ $lecture->description }}
                 </div>
             </div>
+            @auth
+            @if(auth()->user()->is_admin)
+            <div class="row">
+                <div class="col">
+                    <a href="{{ route('admin.lectures.edit', ['lecture'=>$lecture->id]) }}">
+                        <button type="button" class="btn btn-primary" style="width: 100%">Edit</button>
+                    </a>
+                </div>
+                <div class="col">
+                    <form action="{{ route('admin.lectures.destroy', ['lecture'=>$lecture->id]) }}" method="post">
+                        @method('DELETE')
+                        @csrf
+                        <button type="submit" class="btn btn-danger" style="width: 100%">Delete</button>
+                    </form>
+                </div>
+            </div>
+            @endif
+            @endauth
         </div>  
     </div>
 

@@ -59,12 +59,12 @@ Route::resource('journals', 'JournalController')->only([
     'index', 'show',
     ])->middleware([
         'auth',
-        'can:is_member'
+        'can:access_journal'
         ]);
 
 Route::get('documents/{document}/show', function(App\Document $document){
     return view('showpdf', compact('document'));
-})->name('show_pdf')->middleware('auth','can:is_member');
+})->name('show_pdf')->middleware('auth','can:access_journal');
 
 Route::resource('lectures', 'PublicLectureController')->only([
     'index', 'show'
@@ -95,7 +95,7 @@ Route::group([
         'index', 'show'
     ]);
 
-    Route::resource('publicLectures', 'PublicLectureController')->except([
+    Route::resource('lectures', 'PublicLectureController')->except([
         'index', 'show',
     ]);
 

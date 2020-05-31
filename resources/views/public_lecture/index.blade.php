@@ -8,6 +8,13 @@
 
 @section('content')
     <h2 class="text-center" style="font-weight: bold">Public Lectures</h2>
+    @auth
+    @if (Auth::user()->is_admin)
+        <a href="{{ route('admin.lectures.create') }}">
+            <button type="button" class="btn btn-primary btn-lg btn-block my-2">Create Public Lecture</button>
+        </a>
+    @endif
+    @endauth
     <div class="table-responsive-md">
         <table class="table table-bordered">
             <thead class="thead-dark">
