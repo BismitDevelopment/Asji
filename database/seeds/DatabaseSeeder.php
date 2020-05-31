@@ -19,8 +19,8 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@asji.com',
             'email_verified_at' => now(),
             'password' => Hash::make('asji_admin@123'),
-            'is_admin' => '1',
-            'is_member' => '0',
+            'is_admin' => 1,
+            'is_member' => 0,
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -30,8 +30,8 @@ class DatabaseSeeder extends Seeder
             'email' => 'member1@asji.com',
             'email_verified_at' => now(),
             'password' => Hash::make('asji_member1@123'),
-            'is_admin' => '0',
-            'is_member' => '1',
+            'is_admin' => 0,
+            'is_member' => 1,
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -41,8 +41,8 @@ class DatabaseSeeder extends Seeder
             'email' => 'member2@asji.com',
             'email_verified_at' => now(),
             'password' => Hash::make('asji_member2@123'),
-            'is_admin' => '0',
-            'is_member' => '1',
+            'is_admin' => 0,
+            'is_member' => 1,
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -52,8 +52,8 @@ class DatabaseSeeder extends Seeder
             'email' => 'guest1@asji.com',
             'email_verified_at' => now(),
             'password' => Hash::make('asji_guest1@123'),
-            'is_admin' => '0',
-            'is_member' => '0',
+            'is_admin' => 0,
+            'is_member' => 0,
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -63,8 +63,8 @@ class DatabaseSeeder extends Seeder
             'email' => 'guest2@asji.com',
             'email_verified_at' => now(),
             'password' => Hash::make('asji_guest2@123'),
-            'is_admin' => '0',
-            'is_member' => '0',
+            'is_admin' => 0,
+            'is_member' => 0,
             'created_at' => now(),
             'updated_at' => now()
         ]);
