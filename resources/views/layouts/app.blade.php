@@ -91,6 +91,11 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+
+
+                                    @if (Auth::user()->profile)
+                                        <a class="dropdown-item" href="{{ route('profiles.show', ['profile'=>Auth::user()->profile->id]) }}">Show Profile</a>
+                                    @endif
                                 </div>
                             </li>
                         @endguest

@@ -88,7 +88,7 @@ class ProfileController extends Controller
     public function update(Request $request, Profile $profile)
     {
 
-        if(Gate::allows('update-profile', $profile)){
+        if(Gate::allows('update_profile', $profile)){
 
             $this->validate($request,[
                 'first_name' => 'required|string|max:255',
@@ -115,7 +115,6 @@ class ProfileController extends Controller
             $profile->membership = $request->membership;
             $profile->experience = $request->experience;
             $profile->address = $request->address;
-    
             $profile->save();
         }
 

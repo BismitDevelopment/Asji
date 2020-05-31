@@ -3,7 +3,6 @@
 @section('content')
     <h2 class="text-center" style="font-weight: bold">{{ $profile->first_name." ".$profile->last_name }} Profile</h2>
 
-    <a style="" href="{{ route('profiles.show', ['profile'=>$profile->id])}}"></a>
     <div class="row">
         <div class="col-md-3 mx-auto">
             <div class="card text-center">
@@ -22,7 +21,7 @@
 
             @auth
                 <div class="row">
-                    @if(auth()->user()->is_admin || auth()->user()->id === $profile->id)
+                    @if(auth()->user()->is_admin || auth()->user()->id === $profile->user_id)
                     <div class="col">
                         <a href="{{ route('profiles.edit', ['profile'=>$profile->id]) }}">
                             <button type="button" class="btn btn-primary" style="width: 100%">Edit</button>

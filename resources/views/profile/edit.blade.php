@@ -3,7 +3,6 @@
 
 @section('content')
 
-{{-- {{$profile}} --}}
 <div >
     <h2 class="text-center"><b>Edit Profile</b></h2>
 </div>
