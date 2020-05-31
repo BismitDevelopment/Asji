@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+@section('title')
+<title>
+    Journal
+</title>
+@endsection
+
 @section('content')
     <h2 class="text-center" style="font-weight: bold">Journals</h2>
     <div class="table-responsive-md">

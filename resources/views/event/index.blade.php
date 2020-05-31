@@ -1,6 +1,12 @@
 @extends('layouts.app')
+
+@section('title')
+<title>
+  Events
+</title>
+@endsection
+
 @section('css')
-    
 <link rel="stylesheet" href="{{ asset('css/newsEvent.css') }}">
 @endsection
 
@@ -11,9 +17,9 @@
   {{ session('success') }}
 </div> 
 @endif
-  <h2 style="font-weight: bold" class="text-center">ASJI's Events</h2>
-  <div class="event-list" id="eventList">
-      @foreach ($event as $item)
+    <h2 style="font-weight: bold" class="text-center">ASJI's Events</h2>
+    <div class="event-list" id="eventList">
+        @foreach ($event as $item)
         {{-- php for split data --}}
         @php
             // event date formating
@@ -41,10 +47,10 @@
             </div>
             <p>{!!  $desSnippet !!}</p>
         </div>
-      @endforeach
+        @endforeach
 
-      {{-- pagination --}}
-      {{$event->links()}}
-  </div>
+        {{-- pagination --}}
+        {{$event->links()}}
+    </div>
 </div>
 @endsection

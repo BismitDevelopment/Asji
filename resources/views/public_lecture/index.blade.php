@@ -1,5 +1,11 @@
 @extends('layouts.app')
     
+@section('title')
+    <title>
+        Public Lecture
+    </title>
+@endsection
+
 @section('content')
     <h2 class="text-center" style="font-weight: bold">Public Lectures</h2>
     <div class="table-responsive-md">

@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+@section('title')
+<title>
+    ASJI
+</title>
+@endsection
+
 @section('script')
 <script src="{{ asset('js/news.js')}}"></script>
 @endsection
