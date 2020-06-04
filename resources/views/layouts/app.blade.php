@@ -17,7 +17,7 @@
     
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Noto+Serif" rel="stylesheet">
     
     <!--Icons-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -105,7 +105,6 @@
         </nav>
 
         <main>
-            @yield('jumbotron')
             <div class="container py-4">
                 @yield('content')
             </div>
@@ -113,9 +112,8 @@
         <div class="footer bg-dark text-white p-5">
             <div class="row">
                 <div class="col-md-6 col-12 px-5">
-                    <h6 class="font-weight-bold">Pusat Studi Jepang Universitas Indonesia</h6>
-                    <p>Jl. Prof. DR. Selo Soemardjan, Pondok Cina, Kecamatan Beji, Kota Depok, Jawa Barat</p>
-                    <p>16424</p>
+                    <h6 class="font-weight-bold">Japanese Studies Center Bldg. Universitas Indonesia</h6>
+                    <p>Depok 16424 Indonesia. Phone/Fax : +62 21 7888 3241</p>
                 </div>
                 <div class="col-sm-3 col-6 px-5">
                     <h6 class="font-weight-bold">Navigations</h6>
