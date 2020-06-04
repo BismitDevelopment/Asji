@@ -143,5 +143,40 @@ class DatabaseSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now(),
         ]);
+
+        DB::table('events')->insert([
+            'event_date' => now(),
+            'event_name' => 'Event Test',
+            'event_location' => 'Location 1',
+            'event_description' => 'Description of event',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
+        DB::table('public_lectures')->insert([
+            'lecture_date' => now(),
+            'title' => 'Public Lecture Test',
+            'location' => 'PL Location 1',
+            'description' => 'Description of public lecture',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
+        DB::table('news')->insert([
+            'news_title' => 'News Test',
+            'news_body' => 'Description of news',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        
+        DB::table('journals')->insert([
+            'publish_date' => now(),
+            'title' => 'Journal Test',
+            'writer' => 'Writer 1, Writer 2',
+            'description' => 'Description of journal',
+            'created_at' => now(),
+            'updated_at' => now()
+            
+        ]);
     }
 }

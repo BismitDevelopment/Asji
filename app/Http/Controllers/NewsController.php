@@ -55,8 +55,11 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-        $data = News::where('id', $id)->first();
-        return view('news.show', ['news' => $data]);
+        if($data = News::where('id', $id)->first()){
+            return view('news.show', ['news' => $data]);
+        } else {
+            return redirect(route('news.index'));
+        }
     }
 
     /**
@@ -67,8 +70,12 @@ class NewsController extends Controller
      */
     public function edit($id)
     {
-        $data = News::where('id', $id)->first();
-        return view('news.edit', ['news' => $data]);
+        if($data = News::where('id', $id)->first()){
+
+            return view('news.edit', ['news' => $data]);
+        } else {
+            return redirect(route('news.index'));
+        }
     }
 
     /**

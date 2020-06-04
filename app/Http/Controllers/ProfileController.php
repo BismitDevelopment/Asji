@@ -55,11 +55,16 @@ class ProfileController extends Controller
      */
     public function show(Profile $profile)
     {
-        //
-        // $prof = User::find($profile)->profile;
+        if($profile) {
 
+            return view('profile.show', compact('profile'));
 
-        return view('profile.show', compact('profile'));
+        } else {
+
+            return redirect(route('profiles.index'));
+
+        }
+
     }
 
     /**
@@ -70,11 +75,19 @@ class ProfileController extends Controller
      */
     public function edit(Profile $profile)
     {
-        if(Gate::allows('update_profile', $profile)){
-            $image = $profile->image;
-            return view('profile.edit', compact('profile','image'));
+        if($profile) {
+
+            if(Gate::allows('update_profile', $profile)){
+                $image = $profile->image;
+                return view('profile.edit', compact('profile','image'));
+            } else {
+                return redirect(route('profiles.show', ['profile' => $profile->id]));
+            }
+
         } else {
-            return redirect(route('profiles.show', ['profile' => $profile->id]));
+
+            return redirect(route('profiles.index'));
+
         }
     }
 

@@ -73,7 +73,11 @@ class PublicLectureController extends Controller
     public function show(PublicLecture $lecture)
     {
         //
-        return view('public_lecture.show', compact('lecture'));
+        if($lecture) {
+            return view('public_lecture.show', compact('lecture'));
+        } else {
+            return redirect(route('lectures.index'));
+        }
     }
 
     /**
@@ -84,10 +88,13 @@ class PublicLectureController extends Controller
      */
     public function edit(PublicLecture $lecture)
     {
-        //
-        $images = $lecture->images;
-
-        return view('public_lecture.edit', compact('lecture', 'images'));
+        if ($lecture) {
+            $images = $lecture->images;
+    
+            return view('public_lecture.edit', compact('lecture', 'images'));
+        } else {
+            return redirect(route('lectures.index'));
+        }
     }
 
     /**

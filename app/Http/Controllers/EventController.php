@@ -29,7 +29,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        return view('event.create');
+        return view('admin.events.create');
     }
 
     /**
@@ -72,8 +72,12 @@ class EventController extends Controller
      */
     public function show($id)
     {
-        $data = Event::where('id', $id)->first();
-        return view('event.show', ['event' => $data]);
+        if($data = Event::where('id', $id)->first()){
+
+            return view('event.show', ['event' => $data]);
+        } else {
+            return redirect(route('events.index'));
+        }
     }
 
     /**
@@ -84,8 +88,11 @@ class EventController extends Controller
      */
     public function edit($id)
     {
-        $data = Event::where('id', $id)->first();
-        return view('event.edit', ['event' => $data]);
+        if($data = Event::where('id', $id)->first()){
+            return view('event.edit', ['event' => $data]);
+        } else {
+            return redirect(route('events.index'));
+        }
     }
 
     /**

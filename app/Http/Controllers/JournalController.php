@@ -81,9 +81,16 @@ class JournalController extends Controller
     public function show(Journal $journal)
     {
         //
-        $documents = $journal->documents;
+        if($journal){
 
-        return view('journal.show', compact('journal', 'documents'));
+            $documents = $journal->documents;
+            return view('journal.show', compact('journal', 'documents'));
+
+        } else {
+
+            return redirect(route('journals.index'));
+
+        }
     }
 
     /**
@@ -95,9 +102,16 @@ class JournalController extends Controller
     public function edit(Journal $journal)
     {
         //
-        $documents = $journal->documents;
+        if($journal) {
 
-        return view('journal.edit', compact('journal', 'documents'));
+            $documents = $journal->documents;
+            return view('journal.edit', compact('journal', 'documents'));
+
+        } else {
+
+            return redirect(route('journals.index'));
+
+        }
 
     }
 

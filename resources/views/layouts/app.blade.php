@@ -44,6 +44,10 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
+                            <a class="nav-link" href="{{ route('home') }}#news">{{ __('News') }}</a>
+                        </li>
+
+                        <li class="nav-item">
                             <a class="nav-link" href="{{ route('events.index') }}">{{ __('Events') }}</a>
                         </li>
 
@@ -55,12 +59,11 @@
                             <a class="nav-link" href="{{ route('profiles.index') }}">{{ __('Members') }}</a>
                         </li>
 
-                        {{-- <li class="nav-item">
-                            <a class="nav-link" href="{{ route('contact') }}">{{ __('Contact Us') }}</a>
-                        </li> --}}
+                        @auth
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('journals.index') }}">{{ __('Journals') }}</a>
                         </li>
+                        @endauth
                     </ul>
 
                     <!-- Right Side Of Navbar -->

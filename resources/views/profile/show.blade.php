@@ -27,7 +27,7 @@
 
             @auth
                 <div class="row">
-                    @if(auth()->user()->is_admin || auth()->user()->id === $profile->user_id)
+                    @if(auth()->user()->id === $profile->user_id)
                     <div class="col">
                         <a href="{{ route('profiles.edit', ['profile'=>$profile->id]) }}">
                             <button type="button" class="btn btn-primary" style="width: 100%">Edit</button>

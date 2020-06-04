@@ -54,7 +54,7 @@
             </p>
         </div>
     </div>
-    <div class="py-4 news d-flex flex-column">
+    <div id="news" class="py-4 news d-flex flex-column">
         <div class="d-flex flex-column align-self-center align-items-center">
             <h3 class="header-show">News</h3>
             <span class="line"></span>
